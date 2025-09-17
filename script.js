@@ -5,7 +5,7 @@ function base64ToUtf8(str) {
 }
 
 async function initializeCountdown() {
-  const finishedMessageEncoded = "ооо";
+  const finishedMessageEncoded = "0K8g0YLQtdCx0Y8g0L7QsdC+0LbQsNGOIOKdpO+4jw==";
   const targetDate = new Date(Date.UTC(2025, 11, 25, 3, 35, 0));
   const finishedMessage = base64ToUtf8(finishedMessageEncoded);
 
