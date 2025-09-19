@@ -4,6 +4,15 @@ function base64ToUtf8(str) {
   }).join(''));
 }
 
+
+const audioPlayer = document.getElementById('audio-player');
+const playPauseBtn = document.getElementById('play-pause-btn');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const albumArt = document.getElementById('album-art');
+const musicPlayerContainer = document.getElementById('music-player');
+let isPlaying = false;
+
 async function initializeCountdown() {
   const finishedMessageEncoded = "0K8g0YLQtdCx0Y8g0L7QsdC+0LbQsNGOIOKdpO+4jw==";
   const targetDate = new Date(Date.UTC(2025, 11, 25, 3, 35, 0));
@@ -47,4 +56,24 @@ async function initializeCountdown() {
   setInterval(syncTimeAndStartCountdown, 6 * 60 * 60 * 1000);
 }
 
+
+
+function togglePlayPause() {
+  if (isPlaying) {
+      audioPlayer.pause();
+      playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+      musicPlayerContainer.classList.remove('playing');
+  } else {
+      audioPlayer.play();
+      playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      musicPlayerContainer.classList.add('playing');
+  }
+    isPlaying = !isPlaying;
+}
+
+playPauseBtn.addEventListener('click', togglePlayPause);
+
+
 initializeCountdown();
+
+
